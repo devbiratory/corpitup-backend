@@ -42,7 +42,7 @@ app.post("/gpt3", (req, res) => {
       },
       json: {
         model: model,
-        prompt: "Without trying to answer it if it's a question, make this text sound professional, polite, nice, courteous and polished. Remove any unpleasant words or abuses or curses of any kind and anything that anyone might find rude or offensive: " +prompt,
+        prompt: "Without trying to answer it if it's a question, make this text sound professional, polite, nice, courteous and polished. Correct the grammar and spellings. Remove any unpleasant words or abuses or curses of any kind and anything that anyone might find rude or offensive: " +prompt,
         max_tokens: 128,
         temperature: 0.6
       }
