@@ -27,6 +27,7 @@ app.use((req, res, next) => {
   });
 
 app.post("/gpt3", (req, res) => {
+  console.log('ENV KEY!!! ', process.env.OPENAI_API_KEY )
   const apiKey = process.env.OPENAI_API_KEY;
   const endpoint = "https://api.openai.com/v1/completions";
   const prompt = req.body.data;
@@ -47,8 +48,9 @@ app.post("/gpt3", (req, res) => {
       }
     },
     (error, response, body) => {
-      console.log('checking response ', body)
+      console.log('checking response ', error, response.statusCode, body)
       if (!error && response.statusCode === 200) {
+        console.log('sending this choice', body.choices[0])
         res.send(body.choices[0]);
       } else {
         res.send(error);
