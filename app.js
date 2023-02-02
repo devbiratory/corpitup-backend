@@ -27,7 +27,7 @@ app.use((req, res, next) => {
   });
 
 app.post("/gpt3", (req, res) => {
-  const apiKey = "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";
+  const apiKey = process.env.OPENAI_API_KEY;
   const endpoint = "https://api.openai.com/v1/completions";
   const prompt = req.body.data;
   const model = "text-davinci-002";
